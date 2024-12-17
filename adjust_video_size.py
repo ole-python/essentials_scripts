@@ -1,6 +1,7 @@
 import os
 from moviepy.editor import VideoFileClip
 import moviepy.video.fx.all as vfx
+from commons.paths import get_relative_path
 
 def adjust_trimmed_video_size(input_path, output_path):
     # Load the video clip
@@ -41,6 +42,6 @@ def trim_videos_in_folder(input_folder, output_folder):
                 print(f"Error processing {filename}: {e}")
 
 # Example usage
-input_folder = r"D:\videos_trim_script\videos_folder"
-output_folder = r"D:\videos_trim_script\trimmed_videos"
+input_folder = get_relative_path("videos_folder")
+output_folder = get_relative_path("trimmed_videos")
 trim_videos_in_folder(input_folder, output_folder)

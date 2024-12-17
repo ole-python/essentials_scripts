@@ -7,10 +7,11 @@ def adjust_trimmed_video_size(input_path, output_path):
     video = VideoFileClip(input_path)
     
     video_duration = video.duration
-    adjust_duration = video_duration/10
+    # adjust_duration = video_duration/10
+    adjust_duration = 10 # 10 seconds
 
     # Apply the speed change (slowing down)
-    video_slowed = video.fx(vfx.speedx, adjust_duration)
+    video_slowed = video.fx(vfx.speedx, None, adjust_duration)
     
     # Write the trimmed video to the new file
     video_slowed.write_videofile(output_path, codec='libx264', audio_codec='aac')
